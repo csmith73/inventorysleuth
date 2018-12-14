@@ -37,10 +37,9 @@ Primary use:
 /*---------------------------------------------*/
 
 #mc_embed_signup {
-    position: relative;
-    max-width: 100%;
-    width: 490px;
-    z-index: 1;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 100%;
 }
 
 .wrap-input100 {

@@ -21,7 +21,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='comingsoon/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='comingsoon/css/main.css') }}">
-    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet"
+    <link href="{{ url_for('static', filename='comingsoon/css/horizontal-slim-10_7.css') }}" rel="stylesheet"
                       type="text/css">
     <!--===============================================================================================-->
 </head>
@@ -61,7 +61,7 @@
 
                 <!-- Begin Mailchimp Signup Form -->
 
-
+            <div class="w-full flex-w flex-c-m validate-form">
                 <div id="mc_embed_signup">
                     <form action="https://inventorysleuth.us7.list-manage.com/subscribe/post?u=7b55579fe8c664c1ffeb937d3&amp;id=162ff30480"
                           method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
@@ -76,10 +76,11 @@
                                                                                                       tabindex="-1"
                                                                                                       value=""></div>
                             <div class="clear"><input type="submit" value="Subscribe" name="subscribe"
-                                                      id="mc-embedded-subscribe" class="button"></div>
+                                                      id="mc-embedded-subscribe" class="how-btn1 button"></div>
                         </div>
                     </form>
                 </div>
+        </div>
 
                 <!--End mc_embed_signup-->
 
