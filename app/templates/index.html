@@ -24,6 +24,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='css/agency.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/pricing_style.css') }}" rel="stylesheet">
 
 </head>
 
@@ -43,16 +44,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#services">Features</a>
+                    <a class="nav-link js-scroll-trigger" href="#features">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Pricing</a>
+                    <a class="nav-link js-scroll-trigger" href="#pricing">Pricing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">FAQ</a>
+                    <a class="nav-link js-scroll-trigger" href="#faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#team">Blog</a>
+                    <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -69,9 +70,15 @@
             <div class="col-6 text-center">
                 <div class="intro-text">
                     <div class="intro-lead-in">Get Accurate Sales Volume Data for Amazon, Ebay and Walmart</div>
-
-                    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                    <ul class="intro-list-text">
+                        <li>Quickly find daily, monthly and annual sales data for any product.</li>
+                        <li>Track sales overtime and visualize trends.</li>
+                        <li>Keep a close eye on competitor products and inventory levels.</li>
+                        <li>Know a product will sell before investing in it.</li>
+                    </ul>
+                    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Get Started FREE</a>
                 </div>
+
             </div>
             <div class="col-6 text-center">
                 <div class="intro-text">
@@ -84,12 +91,12 @@
 </header>
 
 <!-- Services -->
-<section id="services">
+<section id="features">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Services</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Features</h2>
+                <h3 class="section-subheading text-muted">Inventory Sleuth is the easiest way to get concrete sales data on the largest E-commerce platforms.</h3>
             </div>
         </div>
         <div class="row text-center">
@@ -98,33 +105,32 @@
               <i class="fas fa-circle fa-stack-2x text-primary"></i>
               <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
             </span>
-                <h4 class="service-heading">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading">Track Sales</h4>
+                <p class="text-muted">See inventory levels and sales for all sellers of a product on Amazon, Ebay and Walmart online marketplaces. Simply paste the product URL into Inventory
+                Sleuth and we take care of the rest.</p>
             </div>
             <div class="col-md-4">
             <span class="fa-stack fa-4x">
               <i class="fas fa-circle fa-stack-2x text-primary"></i>
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
-                <h4 class="service-heading">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading">Visualize Sales Volume</h4>
+                <p class="text-muted">Inventory Slueth produces graphs of the sales and inventory levels to make it easy to identify trends and pick profitable products. Our algorithm is constantly checking inventory levels of tracked products providing up to date information in your dashboard. </p>
             </div>
             <div class="col-md-4">
             <span class="fa-stack fa-4x">
               <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+              <i class="fas fa-boxes fa-stack-1x fa-inverse"></i>
             </span>
-                <h4 class="service-heading">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading">Find Profitable Products</h4>
+                <p class="text-muted">With Inventory Sleuth you can be sure a product is selling well before investing in it. Never get stuck with a slow moving product again!</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Portfolio Grid -->
+<!--
 <section class="bg-light" id="portfolio">
     <div class="container">
         <div class="row">
@@ -233,8 +239,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase"></h2>
+                <h3 class="section-subheading text-muted"></h3>
             </div>
         </div>
         <div class="row">
@@ -247,8 +253,8 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4></h4>
+                                <h4 class="subheading">See Daily Inventory Levels and Sales Volume</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
@@ -308,112 +314,208 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>Be Part
-                                <br>Of Our
-                                <br>Story!</h4>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </div>
     </div>
 </section>
+<!--Pricing-->
 
-<!-- Team -->
-<section class="bg-light" id="team">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='img/team/1.jpg') }}" alt="">
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='img/team/2.jpg') }}" alt="">
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='img/team/3.jpg') }}" alt="">
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
+<div id="generic_price_table">
+    <section id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--PRICE HEADING START-->
+                    <div class="price-heading clearfix">
+                        <h1>Pricing</h1>
+                    </div>
+                    <!--//PRICE HEADING END-->
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        <div class="container">
+
+            <!--BLOCK ROW START-->
+            <div class="row">
+                <div class="col-md-4">
+
+                    <!--PRICE CONTENT START-->
+                    <div class="generic_content clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Basic</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign"></span>
+                                    <span class="currency">Free</span>
+                                    <span class="cent"></span>
+                                    <span class="month"></span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>10</span> ASINs</li>
+                                <li><span>Track Sales/Inventory for All Sellers</span></li>
+                                <li><span>Daily Selling Trends</span></li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix">
+                            <a class="" href="">Sign up</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <!--PRICE CONTENT START-->
+                    <div class="generic_content active clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Standard</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign">$</span>
+                                    <span class="currency">9</span>
+                                    <span class="cent">.99</span>
+                                    <span class="month">/MON</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>25</span> ASINs</li>
+                                <li><span>Track Sales/Inventory for All Sellers</span></li>
+                                <li><span>Daily Selling Trends</span></li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix">
+                            <a class="" href="">Sign up</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+                <div class="col-md-4">
+
+                    <!--PRICE CONTENT START-->
+                    <div class="generic_content clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Professional</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign">$</span>
+                                    <span class="currency">19</span>
+                                    <span class="cent">.99</span>
+                                    <span class="month">/MON</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>50</span> ASINs</li>
+                                <li><span>Track Sales/Inventory for All Sellers</span></li>
+                                <li><span>Daily Selling Trends</span></li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix">
+                            <a class="" href="">Sign up</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
             </div>
+            <!--//BLOCK ROW END-->
+
         </div>
-    </div>
-</section>
+    </section>
+
+</div>
+
 
 <!-- Clients -->
+<!--
 <section class="py-5">
     <div class="container">
         <div class="row">
@@ -444,14 +546,14 @@
         </div>
     </div>
 </section>
-
+-->
 <!-- Contact -->
 <section id="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Call, Email or Live Chat. We are here to answer any questions you may have!</h3>
             </div>
         </div>
         <div class="row">
@@ -504,7 +606,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <span class="copyright">Copyright &copy; Your Website 2018</span>
+                <span class="copyright">Copyright &copy; Inventory Sleuth 2019</span>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
