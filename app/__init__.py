@@ -1,10 +1,14 @@
 from flask import Flask
+from app.config import Config
+from flask_login import LoginManager
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-from app import routes
 
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+login = LoginManager(app)
+login.login_view = 'login'
 
-# if __name__ == "__main__":
-#     app.run()
-#     #app.run(host='0.0.0.0')
+from app import routes, models
