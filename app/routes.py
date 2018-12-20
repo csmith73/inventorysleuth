@@ -72,7 +72,7 @@ def product_table_populate():
         d = collections.OrderedDict()
         d['asin'] = row.asin
         d['name'] = row.name
-        d['link'] = row.link
+        d['link'] = '<a href=' + row.link + ' target="_blank">' + 'Product Link' + '</a>'
         d['picture'] = row.picture
         d['bsr_rank'] = row.bsr_rank
         d['bsr_category'] = row.bsr_category
