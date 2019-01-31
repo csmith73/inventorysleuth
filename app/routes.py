@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, trackedproducts, sellerinventory, usertrackedproducts
+from app.models import User, trackedproducts, sellerinventory, usertrackedproducts, productinventory
 from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm
 import collections
@@ -70,7 +70,7 @@ def product_table_populate():
         row = trackedproducts.query.filter(trackedproducts.asin == item).all()[0]
         print(row.asin)
         d = collections.OrderedDict()
-        d['asin'] = row.asin
+        d['asin'] = '<a href=productinventory/' + row.asin + ' target="_blank">' + row.asin + '</a>'
         d['name'] = row.name
         d['link'] = '<a href=' + row.link + ' target="_blank">' + 'Product Link' + '</a>'
         d['picture'] = row.picture
@@ -78,12 +78,65 @@ def product_table_populate():
         d['bsr_category'] = row.bsr_category
         objects_list.append(d)
 
+    print(objects_list)
     dump = {"data": objects_list}
-    return json.dumps(dump)
+    table_data = json.dumps(dump)
+    print(table_data)
+    return table_data
 
 
+@app.route('/productinventory/<asin>', methods=['GET', 'POST'])
+def productinventory_page(asin):
+    print(asin)
+    return render_template('productinventory_page.html')
+
+@app.route('/get_inventory', methods=['GET', 'POST'])
+def get_inventory():
+    user = str(request.json)
+    print(user)
+    data = productinventory.query.filter(productinventory.asin == 'B000YD02MK').all()
+    print(data)
+    dates = [row.date for row in data]
+    dates = list(set(dates))
+    print(dates)
+
+    sellers = [row.seller for row in data]
+    sellers = list(set(sellers))
+    print(sellers)
+
+    # SELECT DISTINCT date FROM productinventory WHERE asin='B000YD02MK'
+
+    t_data = []
+    for seller in sellers:
+        single_data = productinventory.query.filter(productinventory.seller == seller)
+        print(single_data)
+        date_inv_dict = {'seller':seller}
+        for s_row in single_data:
+            s_date = s_row.date
+            s_inventory = s_row.inventory
+            date_inv_dict[s_date] = s_inventory
+            print(date_inv_dict)
+        t_data.append(date_inv_dict)
+        print(t_data)
 
 
+    print(t_data)
+
+    columns = list(t_data[0].keys())
+    print(columns)
+    col_list = []
+    for col in columns:
+        #col_dict = {'data':col}
+        #col_list.append(col_dict)
+        col_dict = {'data':col}
+        col_dict['title'] = col
+        col_list.append(col_dict)
+    print(col_list)
+    dump = {"columns":col_list, "data": t_data}
+    print(dump)
+    table_data = json.dumps(dump)
+    print(table_data)
+    return table_data
 
 
 

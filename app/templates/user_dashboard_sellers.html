@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+    <!-- Custom fonts for this template -->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/agency.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/pricing_style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
+</head>
+
+<script>
+$(document).ready(function (argument) {
+
+    var tracked_products = '{{ current_user.username }}' ;
+
+    var commoditytable = $('#product_table').DataTable({
+                    "processing": true,
+                    "serverSide": false,
+                    bAutoWidth: false,
+                    "ajax": {
+                        "url": "/product_table_populate",
+                        "contentType": "application/json",
+                        "type": "POST",
+                        "data": function () {
+                            return JSON.stringify(tracked_products);
+                            console.log(JSON.stringify(tracked_products));
+                        }
+                    },
+                    "columns": [
+                        {"data": "asin"},
+                        {"data": "name"},
+                        {"data": "link"},
+                        {"data": "picture"},
+                        {"data": "bsr_rank"},
+                        {"data": "bsr_category"}
+
+                    ]
+                });
+    });
+
+
+</script>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="masthead">
+</header>
+
+<section id="product_table_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+
+
+                {% block content %}
+                <h1>Welcome to your dashboard, {{ current_user.username }}!</h1>
+                {% endblock %}
+
+                <table id="product_table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>ASIN</th>
+                <th>Seller Name</th>
+                <th>Listing ID</th>
+                <th>Date</th>
+                <th>Inventory</th>
+                <th>Best Sellers Categories</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ASIN</th>
+                <th>Product Name</th>
+                <th>Link</th>
+                <th>Picture</th>
+                <th>Best Sellers Rank</th>
+                <th>Best Sellers Categories</th>
+            </tr>
+        </tfoot>
+    </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

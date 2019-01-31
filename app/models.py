@@ -43,6 +43,13 @@ class usertrackedproducts(db.Model):
     username = db.Column(db.String())
     id = db.Column(db.String(), primary_key=True)
 
+class productinventory(db.Model):
+    asin = db.Column(db.String())
+    seller = db.Column(db.String())
+    date = db.Column(db.String())
+    inventory =db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key=True)
+
 
 
 
