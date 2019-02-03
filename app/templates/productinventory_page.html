@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Dashboard</title>
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/productinventory.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
@@ -30,22 +31,21 @@
 <script>
 $(document).ready(function (argument) {
 
-    var tracked_products = '{{ current_user.username }}' ;
-
+    var jav_cur_asin = "{{ cur_asin }}" ;
+    console.log(jav_cur_asin)
     $.ajax({
         type: 'POST',
-        dataType: 'json',
+        dataType: "json",
+        contentType: "application/json",
         url: '/get_inventory',
-        data: function() {
-            return tracked_products;
-            console.log(JSON.stringify(tracked_products));
-        },
+        data: JSON.stringify(jav_cur_asin),
         success: function(d) {
             console.log(d);
             console.log(d.data);
             console.log(d.columns);
             $('#product_table').DataTable({
                 dom: "Bfrtip",
+                "bFilter": false,
                 data: d.data,
                 columns: d.columns,
 
@@ -85,9 +85,13 @@ $(document).ready(function (argument) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-
+                {% block content %}
+                <h3>{{ cur_title }}</h3>
+                <h3>ASIN: {{ cur_asin }}</h3>
+                {% endblock %}
 
                 <table id="product_table" class="display" style="width:100%">
+                    <th class="rotate"></th>
 
     </table>
             </div>

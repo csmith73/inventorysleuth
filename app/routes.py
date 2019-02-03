@@ -67,10 +67,11 @@ def product_table_populate():
 
     objects_list = []
     for item in asin_list:
-        row = trackedproducts.query.filter(trackedproducts.asin == item).all()[0]
+        print(item)
+        row = trackedproducts.query.filter(trackedproducts.asin == item).first()
         print(row.asin)
         d = collections.OrderedDict()
-        d['asin'] = '<a href=productinventory/' + row.asin + ' target="_blank">' + row.asin + '</a>'
+        d['asin'] = '<a href=productinventory/' + row.asin + '>' + row.asin + '</a>'
         d['name'] = row.name
         d['link'] = '<a href=' + row.link + ' target="_blank">' + 'Product Link' + '</a>'
         d['picture'] = row.picture
@@ -88,13 +89,19 @@ def product_table_populate():
 @app.route('/productinventory/<asin>', methods=['GET', 'POST'])
 def productinventory_page(asin):
     print(asin)
-    return render_template('productinventory_page.html')
+    cur_asin = str(asin)
+    title_data = trackedproducts.query.filter(trackedproducts.asin == cur_asin).all()[0]
+    print(title_data)
+    cur_title = title_data.name
+    print(cur_title)
+    return render_template('productinventory_page.html',cur_asin=cur_asin, cur_title=cur_title)
 
 @app.route('/get_inventory', methods=['GET', 'POST'])
 def get_inventory():
-    user = str(request.json)
-    print(user)
-    data = productinventory.query.filter(productinventory.asin == 'B000YD02MK').all()
+    asin = request.get_json()
+    print(asin)
+    print(".............................")
+    data = productinventory.query.filter(productinventory.asin == asin).all()
     print(data)
     dates = [row.date for row in data]
     dates = list(set(dates))
